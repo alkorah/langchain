@@ -1,0 +1,31 @@
+{
+    "messages": [
+        {
+            "messageId": "1",
+            "requestTimeStamp": "2025-02-09 13:37:47",
+            "correlationId": "46cc026f-d1c1-49c1-a504-a434e3aRATEB",
+            "sourceSystem": "STPBHUB-AI",
+            "destinationSystem": "PS",
+            "futureDated": 0,
+            "businessArea": "ILCPS",
+            "workType": "ADDRESSCHG",
+            "prodDescription": "Universal Life Insurance Coverage",
+            "newAddress": {
+                "address1": "RAYON NO. 516, SANTA AMALIA",
+                "city": "Tabasco",
+                "country": "Mexico",
+                "province": "Comalcalco",
+                "postalCode": "86370"
+            },
+            "advisorInfo": {
+                "name": "Sebastian Y Pariath",
+                "code": "166847",
+                "brokerCode": "3254",
+                "branchCode": "22770"
+            },
+            "ownerName": "CHARLYN REGEHR",
+            "policy": "1017427",
+            "clientId": "101742742M"
+        }
+    ]
+}

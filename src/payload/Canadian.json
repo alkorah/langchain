@@ -1,0 +1,32 @@
+{
+"messages":[
+      {
+         "messageId":"0aa372a4-8a9a-4fe3-8cc2-e9efcd0bdb35",
+         "_id":"679bc6fc65cbac7c390746ec",
+         "requestTimeStamp":"2025-01-30 13:37:47",
+         "correlationId":"46cc026f-d1c1-49c1-a504-a434e3af85eb",
+         "sourceSystem":"IDP",
+         "destinationSystem":"PS",
+         "futureDated":0,
+         "businessArea":"ILCPS",
+         "workType":"ADDRESSCHG",
+         "prodDescription":"Universal Life Insurance Coverage",
+         "newAddress":{
+            "address1":"354 Boxwood St",
+            "city":"Kingston",
+            "country":"CA",
+            "province":"ON",
+            "postalCode":"K2B2S3"
+         },
+         "advisorInfo":{
+            "name":"Sebastian Y Pariath",
+            "code":"166847",
+            "brokerCode":"3254",
+            "branchCode": "22770"
+         },
+         "ownerName":"CHARLYN REGEHR",
+         "policy":"1017427",
+          "clientId": "101742742M"
+      }
+   ]
+}
