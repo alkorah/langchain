@@ -25,7 +25,10 @@ model = AzureChatOpenAI(
 abot = Agent(model, tools, system=PROMPT_TEXT)
 
 # Load payload from México.json
-with open('src/payload/Canadian.json', 'r', encoding='utf-8') as f:
+current_dir = os.path.dirname(os.path.abspath(__file__))
+json_path = os.path.join(current_dir, 'payload', 'Canadian.json')
+
+with open(json_path, 'r', encoding='utf-8') as f:
     data = json.load(f)
     payload = json.dumps(data)
 
