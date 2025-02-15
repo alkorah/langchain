@@ -1,0 +1,980 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Customer Data Engineering DMO and SMDM APIs",
+    "version": "2.0.0",
+    "description": "Bringing Data and Decision Making Closer Together...\n<h6>_Note: Encoding input URL or sanitizing user input prior to making API call are recommended solutions to avoid ‘403 - Forbidden request’ error._"
+  },
+  "host": "prod-cdedmoapi.azurewebsites.net",
+  "basePath": "/api/cde",
+  "tags": [
+    {
+      "name": "Client Information",
+      "description": "powered by DMO",
+      "externalDocs": {
+        "description": "Client Information",
+        "url": ""
+      }
+    }
+  ],
+  "definitions": {
+    "Customers": {
+      "type": "object",
+      "properties": {
+        "REPSOURCE_ID": {
+          "type": "string",
+          "description": "Advisor Manulife ID"
+        },
+        "PARTY_ID": {
+          "type": "integer",
+          "description": "DMO Party ID"
+        },
+        "CURRENCY_FLAG": {
+          "type": "string",
+          "description": "Account Currency Flag"
+        },
+        "FIRST_NAME": {
+          "type": "string",
+          "description": "Owner Firstname"
+        },
+        "LAST_NAME": {
+          "type": "string",
+          "description": "Owner Lastname"
+        },
+        "BIRTH_DT": {
+          "type": "string",
+          "description": "Owner Birth Date"
+        },
+        "ADDRESS_1": {
+          "type": "string",
+          "description": "Owner Address Line 1"
+        },
+        "ADDRESS_2": {
+          "type": "string",
+          "description": "Owner Address Line 2"
+        },
+        "ADDRESS_3": {
+          "type": "string",
+          "description": "Owner Address Line 3"
+        },
+        "ADDRESS_4": {
+          "type": "string",
+          "description": "Owner Address Line 4"
+        },
+        "ADDRESS_5": {
+          "type": "string",
+          "description": "Owner Address Line 5"
+        },
+        "CITY": {
+          "type": "string",
+          "description": "Owner Address City"
+        },
+        "PROVINCE_CD": {
+          "type": "integer",
+          "description": "Owner Address Province Code"
+        },
+        "PROVINCE_DESC": {
+          "type": "string",
+          "description": "Owner Address Province Short Description"
+        },
+        "COUNTRY_CD": {
+          "type": "integer",
+          "description": "Owner Address Country Code"
+        },
+        "COUNTRY_DESC": {
+          "type": "string",
+          "description": "Owner Address Country Short Description"
+        },
+        "POSTAL_CODE": {
+          "type": "string",
+          "description": "Owner Address Postal Code"
+        },
+        "ACCUM_VALUE_AMT": {
+          "type": "integer",
+          "description": "Current DMO Market Value"
+        },
+        "URL": {
+          "type": "string",
+          "description": "My Clients URL"
+        }
+      }
+    },
+    "ClientInformation": {
+      "type": "object",
+      "properties": {
+        "PARTY_ID": {
+          "type": "string",
+          "description": ""
+        },
+        "HOST_POLICY_ID": {
+          "type": "string",
+          "description": ""
+        },
+        "POLICY_ID": {
+          "type": "integer",
+          "description": ""
+        },
+        "MLAC_SYSTEM_ID": {
+          "type": "integer",
+          "description": ""
+        },
+        "CUSTOMER_ID": {
+          "type": "string",
+          "description": ""
+        },
+        "FIRST_NAME": {
+          "type": "string",
+          "description": ""
+        },
+        "MIDDLE_NAME": {
+          "type": "string",
+          "description": ""
+        },
+        "LAST_NAME": {
+          "type": "string",
+          "description": ""
+        },
+        "TITLE": {
+          "type": "string",
+          "description": ""
+        },
+        "NAME_SUFFIX": {
+          "type": "string",
+          "description": ""
+        },
+        "GENDER": {
+          "type": "string",
+          "description": ""
+        },
+        "BIRTH_DT": {
+          "type": "string",
+          "description": ""
+        },
+        "SIN": {
+          "type": "string",
+          "description": ""
+        },
+        "CUST_ROLE_TYPE_CODE": {
+          "type": "integer",
+          "description": ""
+        },
+        "CUST_ROLE_TYPE_EN": {
+          "type": "string",
+          "description": ""
+        },
+        "CUST_ROLE_TYPE_FR": {
+          "type": "string",
+          "description": ""
+        },
+        "CUST_TYPE_CODE": {
+          "type": "string",
+          "description": ""
+        },
+        "CUST_TYPE_EN": {
+          "type": "string",
+          "description": ""
+        },
+        "CUST_TYPE_FR": {
+          "type": "string",
+          "description": ""
+        },
+        "LANGUAGE_CD": {
+          "type": "string",
+          "description": ""
+        },
+        "AGE_ADMITTED_IND": {
+          "type": "string",
+          "description": ""
+        },
+        "DEATH_DT": {
+          "type": "string",
+          "description": ""
+        },
+        "CREATION_DT": {
+          "type": "string",
+          "description": ""
+        },
+        "GIVEN_NAME_3": {
+          "type": "string",
+          "description": ""
+        },
+        "GIVEN_NAME_4": {
+          "type": "string",
+          "description": ""
+        },
+        "NICK_NAME": {
+          "type": "string",
+          "description": ""
+        },
+        "DEATH_IND": {
+          "type": "string",
+          "description": ""
+        },
+        "OCCUPATION_CLASS_CD": {
+          "type": "string",
+          "description": ""
+        },
+        "OCCUPATION_CLASS_EN": {
+          "type": "string",
+          "description": ""
+        },
+        "OCCUPATION_CLASS_FR": {
+          "type": "string",
+          "description": ""
+        },
+        "HEALTHSTYLE_RATING_CD": {
+          "type": "string",
+          "description": ""
+        },
+        "HEALTHSTYLE_RATING_EN": {
+          "type": "string",
+          "description": ""
+        },
+        "HEALTHSTYLE_RATING_FR": {
+          "type": "string",
+          "description": ""
+        },
+        "CUSTOMER_STATUS_CD": {
+          "type": "string",
+          "description": ""
+        },
+        "CORRESPONDENCE_ACTION_CD": {
+          "type": "string",
+          "description": ""
+        },
+        "EMPLOYEE_IND": {
+          "type": "string",
+          "description": ""
+        },
+        "LAST_HOST_DT": {
+          "type": "string",
+          "description": ""
+        },
+        "ELECTRONIC_DELIVERY_IND": {
+          "type": "string",
+          "description": ""
+        },
+        "E_MAIL_ADDRESS": {
+          "type": "string",
+          "description": ""
+        },
+        "ADDRESS_TYPE_CD": {
+          "type": "string",
+          "description": ""
+        },
+        "PROVINCE": {
+          "type": "string",
+          "description": ""
+        },
+        "COUNTRY": {
+          "type": "string",
+          "description": ""
+        },
+        "ADDRESS_1": {
+          "type": "string",
+          "description": ""
+        },
+        "ADDRESS_2": {
+          "type": "string",
+          "description": ""
+        },
+        "ADDRESS_3": {
+          "type": "string",
+          "description": ""
+        },
+        "ADDRESS_4": {
+          "type": "string",
+          "description": ""
+        },
+        "ADDRESS_5": {
+          "type": "string",
+          "description": ""
+        },
+        "CITY": {
+          "type": "string",
+          "description": ""
+        },
+        "POSTAL_CODE": {
+          "type": "string",
+          "description": ""
+        },
+        "PHONE_NO": {
+          "type": "string",
+          "description": ""
+        },
+        "ADDRESS_START_MONTH_NO": {
+          "type": "string",
+          "description": ""
+        },
+        "ADDRESS_START_DAY_NO": {
+          "type": "string",
+          "description": ""
+        },
+        "ADDRESS_END_MONTH_NO": {
+          "type": "string",
+          "description": ""
+        },
+        "ADDRESS_END_DAY_NO": {
+          "type": "string",
+          "description": ""
+        },
+        "RESIDENCE_NO": {
+          "type": "string",
+          "description": ""
+        },
+        "BAD_ADDRESS_CD": {
+          "type": "string",
+          "description": ""
+        },
+        "BAD_ADDRESS_INDICATOR": {
+          "type": "string",
+          "description": ""
+        }
+      }
+    }
+  },
+  "paths": {
+    "/DMO/Advisor/TopAccounts": {
+      "get": {
+        "tags": [
+          "Book of Business"
+        ],
+        "description": "Returns top accounts by Manulife ID sorted by current market value in descending order",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Manulife_Id",
+            "description": "repsourceId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "languageId",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "default": 1,
+            "description": "Select Language Id\n 1 - English \n 2 - French\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of top accounts",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error in processing request"
+          }
+        }
+      }
+    },
+    "/DMO/ClientInformation/GetClientInfo": {
+      "get": {
+        "tags": [
+          "Client Information"
+        ],
+        "description": "Returns Clients by MLac System ID, Policy Id and Advisor Codes",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Mlac_System_Id",
+            "description": "Mlac_System_Id in DMO",
+            "in": "query",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "Host_Policy_Id",
+            "description": "Host_Policy_Id",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Advisor_codes",
+            "description": "Either one of Advisor Codes or Branch codes is Required",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Branch_codes",
+            "description": "Either one of Advisor Codes or Branch codes is Required",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Clients by Advisors",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ClientInformation"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error in processing request"
+          }
+        }
+      }
+    },
+    "/DMO/ClientInformation/GetBankAccountInfo": {
+      "get": {
+        "tags": [
+          "Client Information"
+        ],
+        "description": "Returns Client Bank Account information by MLac System ID, Policy Id and Advisor Codes/Branch Codes",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Mlac_System_Id",
+            "description": "Mlac_System_Id in DMO",
+            "in": "query",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "Host_Policy_Id",
+            "description": "Host_Policy_Id",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Advisor_codes",
+            "description": "Optional. Not required if Branch codes is provided",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Branch_codes",
+            "description": "Optional. Not required if Advisor Codes is provided",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "VERIFIED_BANK_ACCT_CD",
+            "description": "Optional, Accepts values 'Y', 'N' or blank string",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Clients Bank Account Information by Advisors",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BankAccountInformation"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error in processing request"
+          }
+        }
+      }
+    },
+    "/DMO/ClientInformation/GetPACInfo": {
+      "get": {
+        "tags": [
+          "Client Information"
+        ],
+        "description": "Returns PAC Info by MLac System ID, Policy Id, Advisor Codes and Branch Codes",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Mlac_Systems",
+            "description": "Mlac_System_Ids in DMO, multiple comma separated values could be added",
+            "in": "query",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "DMO_Policy_Id",
+            "description": "DMO_Policy_Id",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Advisor_IDs",
+            "description": "Optional. Not required if Branch ID is provided",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Branch_IDs",
+            "description": "Optional. Not required if Advisor ID is provided",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Pre Authorized Cheque allocations by Advisor and Branch IDs",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PACInformation"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error in processing request"
+          }
+        }
+      }
+    },
+    "/DMO/ClientInformation/GetOwnerDetails": {
+      "get": {
+        "tags": [
+          "Client Information"
+        ],
+        "description": "Returns Owner Information by DMO Policy ID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "DMO_Policy_Id",
+            "description": "",
+            "in": "query",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "languageId",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "default": 1,
+            "description": "Select Language Id\n 1 - English \n 2 - French\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Owner details \n \n If no owner found - Return Code 1 \n \n If found, response:",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OwnerDetails"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error in processing request"
+          }
+        }
+      }
+    },
+    "/DMO/ClientInformation/GetRelatedParties": {
+      "get": {
+        "tags": [
+          "Client Information"
+        ],
+        "description": "Get all related parties info",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "DMO_Policy_Id",
+            "description": "",
+            "in": "query",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "languageId",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "default": 1,
+            "description": "Select Language Id\n 1 - English \n 2 - French\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return Related Parties from DMO_Policy_ID",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RelatedParties"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error in processing request"
+          }
+        }
+      }
+    },
+    "/DMO/ClientInformation/GetBeneficiariesDetails": {
+      "get": {
+        "tags": [
+          "Client Information"
+        ],
+        "description": "Returns Beneficiary from DMO_Policy_ID ",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "DMO_Policy_Id",
+            "description": "",
+            "in": "query",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "languageId",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "default": 1,
+            "description": "Select Language Id\n 1 - English \n 2 - French\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Beneficiary details",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BeneficiaryDetails"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error in processing request"
+          }
+        }
+      }
+    },
+    "/DMO/ClientInformation/GetCustomerByHostSystemCustomerID": {
+      "get": {
+        "tags": [
+          "Client Information"
+        ],
+        "description": "Returns Customer By Host System Customer ID ",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Host_System_Customer_ID",
+            "description": "",
+            "in": "query",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "MLAC_System_ID",
+            "in": "query",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Customer details",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CustomerByHostSystemCustomerID"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error in processing request"
+          }
+        }
+      }
+    },
+    "/DMO/ClientInformation/GetCustomerDetails": {
+      "get": {
+        "tags": [
+          "Client Information"
+        ],
+        "description": "Returns Customer Details by DMO Customer Id or DMO Party Id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "CustomerID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "description": "Either one of Customer Id or Party Id is Required"
+          },
+          {
+            "name": "PartyID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "description": "Either one of Customer Id or Party Id is Required"
+          },
+          {
+            "name": "LanguageID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "default": 1,
+            "description": "Select Language Id\n 1 - English \n 2 - French\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Customer Details by DMO Customer Id or DMO Party Id",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CustomerDetails"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error in processing request"
+          }
+        }
+      }
+    },
+    "/DMO/ClientInformation/GetIPOwnerDetails": {
+      "get": {
+        "tags": [
+          "Client Information"
+        ],
+        "description": "Returns Investment Product (IP) Owner Details",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "BranchCodes",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "Comma-separated list of either Branch Codes or Advisor Codes, but not both, required to get IP Owner Details"
+          },
+          {
+            "name": "AdvisorCodes",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "Comma-separated list of either Branch Codes or Advisor Codes, but not both, required to get IP Owner Details"
+          },
+          {
+            "name": "LastName",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "Last Name required to get IP Owner Details"
+          },
+          {
+            "name": "FirstName",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "First Name"
+          },
+          {
+            "name": "LanguageID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "default": 1,
+            "description": "Select Language Id\n 1 - English \n 2 - French\n"
+          },
+          {
+            "name": "MLACSystemCodes",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "Comma-separated list of MLAC System Ids in DMO"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Investment Product (IP) Owner Details",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IPOwnerDetails"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error in processing request"
+          }
+        }
+      }
+    },
+    "/DMO/ClientInformation/GetIPRelatedParties": {
+      "get": {
+        "tags": [
+          "Client Information"
+        ],
+        "description": "Returns Investment Product (IP) Related Parties",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Host_Policy_ID",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "Host Policy Id required to get IP related Parties"
+          },
+          {
+            "name": "RoleTypes",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "Comma-separated numeric values of Customer Role Type Codes"
+          },
+          {
+            "name": "LanguageID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "default": 1,
+            "description": "Select Language Id\n 1 - English \n 2 - French\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Investment Product (IP) Related Parties",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IPRelatedParties"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error in processing request"
+          }
+        }
+      }
+    }
+  }
+}

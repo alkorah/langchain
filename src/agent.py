@@ -29,7 +29,7 @@ class Agent:
         result = state['messages'][-1]
         return len(result.tool_calls) > 0
 
-    def call_openai(self, state: AgentState):
+    def call_openai(self, state: AgentState,  message: str = None):
         messages = state['messages']
         if self.system:
             messages = [SystemMessage(content=self.system)] + messages
