@@ -136,10 +136,11 @@ def get_oauth_token():
         str: The OAuth 2.0 token.
     """
     try:
+        print ("geting oauth 2.0 token")
         auth_url = os.getenv("APIM_AUTH_URL")
-        client_id = os.getenv("CLIENT_ID")
-        client_secret = os.getenv("CLIENT_SECRET")
-        scope = os.getenv("SCOPE")
+        client_id = os.getenv("APIM_CLIENT_ID")
+        client_secret = os.getenv("APIM_CLIENT_SECRET")
+        scope = os.getenv("APIM_SCOPE")
 
         response = requests.post(auth_url, data={
             'client_id': client_id,
@@ -174,23 +175,42 @@ def call_generic_api(api_details: dict):
         dict: The JSON response from the API call.
     """
     try:
+        print_colored("Validating API details...", "34")  # Blue
+        if not isinstance(api_details, dict):
+            raise ValueError(f"Expected dict, got {type(api_details)}: {api_details}")
+        
+        print_colored(f"Raw API details: {api_details}", "36")  # Cyan
+        
         base_url = os.getenv("BASE_API_URL")
         endpoint = api_details.get("API")
+        if not endpoint:
+            raise ValueError("Missing 'API' key in api_details")
+            
         url = f"{base_url}{endpoint}"
         params = api_details.get("Parameters", {})
+        
+        print_colored(f"Constructed URL: {url}", "36")  # Cyan
+        print_colored(f"Parameters: {params}", "36")  # Cyan
+        
         token = get_oauth_token()
         if not token:
-            return {"error": "Failed to obtain OAuth token"}
+            raise ValueError("Failed to obtain OAuth token")
         
         headers = {
-            'Authorization': f'Bearer {token}'
+            'Authorization': f'Bearer {token}',
+            'Content-Type': 'application/json'
         }
-        print_colored(f"Received API URL: {url}", "36")  # Cyan
-        print_colored(f"Received Parameters: {params}", "34")  # Blue
+        
+        print_colored("Making API request...", "34")  # Blue
         response = requests.get(url, headers=headers, params=params)
         response.raise_for_status()
-        return response.json()
-    except requests.RequestException as e:
-        print_colored(f"Error making API call: {e}", "31")  # Red
-        return {"error": str(e)}
+        
+        result = response.json()
+        print_colored(f"API Response: {result}", "32")  # Green
+        return result
+        
+    except Exception as e:
+        error_msg = f"Error making API call: {str(e)}"
+        print_colored(error_msg, "31")  # Red
+        return {"error": error_msg}
 

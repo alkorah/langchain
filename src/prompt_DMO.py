@@ -25,12 +25,19 @@ Ensure the decision aligns with the user’s request and the available API opera
  - Construct the API request using parameters derived from the JSON payload once the correct API is selected.
  - Give the  priority for the APIs that requires the least amount of information to be passed to the API.
  - Execute the API call with accuracy and process the response appropriately by calling call_generic_api action and pass the API needed for the call and the paramter needed for the call.
-    Output Template from this step should json showing the API to call and the list of parameter for example:
+    Output Template from this step should json as showing below which has api_details and inside api_details has the API to call and the list of parameter for example:
     {
-    API : url to call. from the swagger 
-    Parametter [ list of paramtter for the selected URL] 
+    "api_details": {
+        "API": url link,
+        "Parameters": {
+            "Parameter1": value1,
+            "Parameter2": values2
+        }
     }
-   
+}
+
+**call_generic_api**     
+retun action and call call_generic_api action and pass the API needed for the call and the paramter needed for the call.
 
 4. Selective Data Extraction:
 once we get the response from DMO API action extract only the data relevant to the user's request from a successful API response. For example, if the user requests a customer's address, return only the address information.
@@ -51,7 +58,7 @@ Documentation detailing the logic flow and how the agent decides which API to ca
 
 Endpoint: /DMO/Advisor/TopAccounts
 Operation: get
-Parameters: [{'name': 'Manulife_Id', 'description': 'repsourceId', 'in': 'query', 'required': True, 'type': 'string'}, {'name': 'languageId', 'in': 'query', 'required': True, 'type': 'integer', 'enum': [1, 2], 'default': 1, 'description': 'Select Language Id\n 1 - English \n 2 - French\n'}]
+Parameters: [{'name': 'Manulife_Id', 'description': 'repsourceId', 'in': 'query', 'required': True, 'type': 'string'}, {'name': 'LanguageID', 'in': 'query', 'required': True, 'type': 'integer', 'enum': [1, 2], 'default': 1, 'description': 'Select Language Id\n 1 - English \n 2 - French\n'}]
 Response Schemas: {'200': {'type': 'array', 'items': {'$ref': '#/definitions/Account'}}}
 
 Endpoint: /DMO/ClientInformation/GetClientInfo
@@ -66,22 +73,22 @@ Response Schemas: {'200': {'type': 'array', 'items': {'$ref': '#/definitions/Ban
 
 Endpoint: /DMO/ClientInformation/GetPACInfo
 Operation: get
-Parameters: [{'name': 'Mlac_Systems', 'description': 'Mlac_System_Ids in DMO, multiple comma separated values could be added', 'in': 'query', 'required': True, 'type': 'integer'}, {'name': 'DMO_Policy_Id', 'description': 'DMO_Policy_Id', 'in': 'query', 'required': True, 'type': 'string'}, {'name': 'Advisor_IDs', 'description': 'Optional. Not required if Branch ID is provided', 'in': 'query', 'required': False, 'type': 'string'}, {'name': 'Branch_IDs', 'description': 'Optional. Not required if Advisor ID is provided', 'in': 'query', 'required': False, 'type': 'string'}]
+Parameters: [{'name': 'Mlac_Systems', 'description': 'Mlac_System_Ids in DMO, multiple comma separated values could be added', 'in': 'query', 'required': True, 'type': 'integer'}, {'name': 'DMO_Policy_ID', 'description': 'DMO_Policy_ID', 'in': 'query', 'required': True, 'type': 'string'}, {'name': 'Advisor_IDs', 'description': 'Optional. Not required if Branch ID is provided', 'in': 'query', 'required': False, 'type': 'string'}, {'name': 'Branch_IDs', 'description': 'Optional. Not required if Advisor ID is provided', 'in': 'query', 'required': False, 'type': 'string'}]
 Response Schemas: {'200': {'type': 'array', 'items': {'$ref': '#/definitions/PACInformation'}}}
 
 Endpoint: /DMO/ClientInformation/GetOwnerDetails
 Operation: get
-Parameters: [{'name': 'DMO_Policy_Id', 'description': 'this return information about the current policy holder like address', 'in': 'query', 'required': True, 'type': 'integer'}, {'name': 'languageId', 'in': 'query', 'required': True, 'type': 'integer', 'enum': [1, 2], 'default': 1, 'description': 'Select Language Id\n 1 - English \n 2 - French\n'}]
+Parameters: [{'name': 'DMO_Policy_ID', 'description': 'this return information about the current policy holder like address', 'in': 'query', 'required': True, 'type': 'integer'}, {'name': 'LanguageID', 'in': 'query', 'required': True, 'type': 'integer', 'enum': [1, 2], 'default': 1, 'description': 'Select Language Id\n 1 - English \n 2 - French\n'}]
 Response Schemas: {'200': {'type': 'array', 'items': {'$ref': '#/definitions/OwnerDetails'}}}
 
 Endpoint: /DMO/ClientInformation/GetRelatedParties
 Operation: get
-Parameters: [{'name': 'DMO_Policy_Id', 'description': '', 'in': 'query', 'required': True, 'type': 'integer'}, {'name': 'languageId', 'in': 'query', 'required': True, 'type': 'integer', 'enum': [1, 2], 'default': 1, 'description': 'Select Language Id\n 1 - English \n 2 - French\n'}]
+Parameters: [{'name': 'DMO_Policy_ID', 'description': '', 'in': 'query', 'required': True, 'type': 'integer'}, {'name': 'LanguageID', 'in': 'query', 'required': True, 'type': 'integer', 'enum': [1, 2], 'default': 1, 'description': 'Select Language Id\n 1 - English \n 2 - French\n'}]
 Response Schemas: {'200': {'type': 'array', 'items': {'$ref': '#/definitions/RelatedParties'}}}
 
 Endpoint: /DMO/ClientInformation/GetBeneficiariesDetails
 Operation: get
-Parameters: [{'name': 'DMO_Policy_Id', 'description': '', 'in': 'query', 'required': True, 'type': 'integer'}, {'name': 'languageId', 'in': 'query', 'required': True, 'type': 'integer', 'enum': [1, 2], 'default': 1, 'description': 'Select Language Id\n 1 - English \n 2 - French\n'}]
+Parameters: [{'name': 'DMO_Policy_ID', 'description': '', 'in': 'query', 'required': True, 'type': 'integer'}, {'name': 'LanguageID', 'in': 'query', 'required': True, 'type': 'integer', 'enum': [1, 2], 'default': 1, 'description': 'Select Language Id\n 1 - English \n 2 - French\n'}]
 Response Schemas: {'200': {'type': 'array', 'items': {'$ref': '#/definitions/BeneficiaryDetails'}}}
 
 Endpoint: /DMO/ClientInformation/GetCustomerByHostSystemCustomerID

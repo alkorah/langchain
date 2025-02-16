@@ -2,14 +2,14 @@ import json
 import os
 import sys
 
-from actions import call_awd, call_mainframe, call_db2, call_agent_dataSource
+from actions import call_awd, call_mainframe, call_agent_dataSource
 from agent import Agent
 from langchain_openai import AzureChatOpenAI, AzureOpenAI
 from langchain_core.messages import AnyMessage, SystemMessage, HumanMessage, ToolMessage
 from prompt import PROMPT_TEXT
 from swagger_processor import SwaggerProcessor
 
-tools = [call_awd, call_mainframe, call_db2, call_agent_dataSource]
+tools = [call_awd, call_mainframe, call_agent_dataSource]
 
 model = AzureChatOpenAI(
     deployment_name="gpt-4o-mini",
