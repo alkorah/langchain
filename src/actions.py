@@ -158,7 +158,7 @@ def get_oauth_token():
 @tool
 def call_generic_api(api_details: dict):
     """
-    Make a network call to a generic API based on the provided URL and parameters.
+    call_generic_api Make a network call to a generic API based on the provided URL and parameters.
 
     Args:
         api_details (dict): A dictionary containing the API URL and parameters.
